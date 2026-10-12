@@ -7,7 +7,6 @@ namespace WindowsFormsApp1.GUI
 {
     public partial class frmQuanLyHoa : Form
     {
-        // Mã hoa đang được chọn
         private int maHoaDangChon = -1;
 
         public frmQuanLyHoa()
@@ -15,9 +14,6 @@ namespace WindowsFormsApp1.GUI
             InitializeComponent();
         }
 
-        // =====================================================
-        // 1. KHI MỞ FORM
-        // =====================================================
         private void frmQuanLyHoa_Load(object sender, EventArgs e)
         {
             try
@@ -40,9 +36,6 @@ namespace WindowsFormsApp1.GUI
             }
         }
 
-        // =====================================================
-        // 2. LOAD DANH SÁCH HOA
-        // =====================================================
         private void LoadDanhSachHoa()
         {
             try
@@ -84,10 +77,6 @@ namespace WindowsFormsApp1.GUI
                     MessageBoxIcon.Error);
             }
         }
-
-        // =====================================================
-        // 3. LÀM MỚI CÁC Ô NHẬP
-        // =====================================================
         private void LamMoiControls()
         {
             txtTenHoa.Clear();
@@ -104,9 +93,6 @@ namespace WindowsFormsApp1.GUI
             txtTenHoa.Focus();
         }
 
-        // =====================================================
-        // 4. NÚT THÊM
-        // =====================================================
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Kiểm tra dữ liệu nhập
@@ -198,9 +184,6 @@ namespace WindowsFormsApp1.GUI
             }
         }
 
-        // =====================================================
-        // 5. CLICK VÀO DÒNG TRONG DATAGRIDVIEW
-        // =====================================================
         private void dgvHoa_CellClick(
             object sender,
             DataGridViewCellEventArgs e)
