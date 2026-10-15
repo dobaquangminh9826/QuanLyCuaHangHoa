@@ -80,9 +80,6 @@
     <EmbeddedResource Include="GUI\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmQuanLyHoa.resx">
       <DependentUpon>frmQuanLyHoa.cs</DependentUpon>
     </EmbeddedResource>
