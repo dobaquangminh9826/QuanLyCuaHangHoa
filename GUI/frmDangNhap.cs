@@ -7,29 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.BUS; 
-using WindowsFormsApp1.GUI; 
+using WindowsFormsApp1.BUS;
+// Lưu ý: Nếu frmMain nằm chung namespace WindowsFormsApp1 thì không cần using WindowsFormsApp1.GUI;
 
 namespace WindowsFormsApp1
 {
     public partial class frmDangNhap : Form
     {
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
         public frmDangNhap()
         {
             InitializeComponent();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-           
             string taiKhoan = txtTaiKhoan.Text.Trim();
             string matKhau = txtMatKhau.Text.Trim();
 
@@ -47,9 +46,12 @@ namespace WindowsFormsApp1
 
                 string chucVu = dt.Rows[0]["ChucVu"].ToString();
 
+                // Mở frmMain và truyền chức vụ sang
                 frmMain mainForm = new frmMain(chucVu);
-                this.Hide();
+                this.Hide();    
                 mainForm.ShowDialog();
+
+                // Khi form chính (frmMain) đóng lại, đóng luôn form đăng nhập để tắt ứng dụng hoàn toàn
                 this.Close();
             }
             else
