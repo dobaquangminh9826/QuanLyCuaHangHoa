@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.BUS;
+using WindowsFormsApp1.DAL;
 
 namespace WindowsFormsApp1
 {
@@ -14,6 +16,29 @@ namespace WindowsFormsApp1
             LoadHinhAnh();
         }
 
+
+        // Kiểm tra mật khẩu hiện tại theo tài khoản
+        public static bool KiemTraMatKhau(string taiKhoan, string matKhau)
+        {
+            string query = "SELECT COUNT(*) FROM NhanVien WHERE TaiKhoan = @tk AND MatKhau = @mk";
+            SqlParameter[] parameters = {
+        new SqlParameter("@tk", taiKhoan),
+        new SqlParameter("@mk", matKhau)
+        };
+            DataTable dt = Database.GetData(query, parameters);
+            return dt != null && dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0;
+        }
+
+        // Đổi mật khẩu theo tài khoản
+        public static bool DoiMatKhau(string taiKhoan, string matKhauMoi)
+        {
+            string query = "UPDATE NhanVien SET MatKhau = @mk WHERE TaiKhoan = @tk";
+            SqlParameter[] parameters = {
+        new SqlParameter("@tk", taiKhoan),
+        new SqlParameter("@mk", matKhauMoi)
+        };
+            return Database.ExecuteNonQuery(query, parameters);
+        }
         // Lấy ảnh từ Resources theo tên; trả về null nếu chưa có (không gây lỗi)
         private static Image LayAnh(string ten)
         {
@@ -79,16 +104,36 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // Đăng nhập thành công: mở trang chủ, truyền chức vụ lấy từ SQL
+            // Đăng nhập thành công: lấy thông tin từ SQL
             string chucVu = Convert.ToString(dt.Rows[0]["ChucVu"]);
             string hoTen = Convert.ToString(dt.Rows[0]["HoTen"]);
 
-            Hide();
-            using (frmMain mainForm = new frmMain(chucVu, hoTen))
+            // Ưu tiên tên đăng nhập trả về từ SQL (đúng hoa/thường), không có thì dùng chữ vừa gõ
+            string tenDangNhap = dt.Columns.Contains("TaiKhoan")
+                  ? Convert.ToString(dt.Rows[0]["TaiKhoan"])
+                  : taiKhoan;
+
+            bool dangXuat;
+            using (frmMain mainForm = new frmMain(chucVu, hoTen, tenDangNhap))
             {
                 mainForm.ShowDialog();
+                dangXuat = mainForm.DaDangXuat;
             }
-            Close();
+
+            if (dangXuat)
+            {
+                // Bấm "Đăng xuất" ở trang chủ: quay lại màn hình đăng nhập với ô trống
+                txtTaiKhoan.Clear();
+                txtMatKhau.Clear();
+                chkHienMatKhau.Checked = false;
+                Show();
+                txtTaiKhoan.Focus();
+            }
+            else
+            {
+                // Tắt cửa sổ chính bằng nút X: thoát chương trình
+                Close();
+            }
         }
 
         // =====================================================

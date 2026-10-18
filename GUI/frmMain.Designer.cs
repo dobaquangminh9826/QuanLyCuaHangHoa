@@ -1,6 +1,5 @@
 using System.Drawing;
 using System.Windows.Forms;
-using System;
 
 namespace WindowsFormsApp1
 {
@@ -21,778 +20,911 @@ namespace WindowsFormsApp1
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
-            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
-
-            panelSidebar = new Panel();
-            lblTime = new Label();
-            btnLogout = new Button();
-            btnChangePass = new Button();
-            btnStatistics = new Button();
-            btnOrder = new Button();
-            btnSale = new Button();
-            btnStaff = new Button();
-            btnCategory = new Button();
-            btnFlower = new Button();
-            btnHome = new Button();
-            panelLogo = new Panel();
-            btnSearch = new Button();
-            lblSubLogo = new Label();
-            lblMainLogo = new Label();
-            picLogoIcon = new PictureBox();
-            panelHeader = new Panel();
-            lblAdminName = new Label();
-            picAdminAvatar = new PictureBox();
-            lblWelcomeSub = new Label();
-            lblWelcomeMain = new Label();
-            panelStats1 = new Panel();
-            lblStat1Num = new Label();
-            lblStat1Title = new Label();
-            picStat1 = new PictureBox();
-            panelStats2 = new Panel();
-            lblStat2Num = new Label();
-            lblStat2Title = new Label();
-            picStat2 = new PictureBox();
-            panelStats3 = new Panel();
-            lblStat3Num = new Label();
-            lblStat3Title = new Label();
-            picStat3 = new PictureBox();
-            panelStats4 = new Panel();
-            lblStat4Num = new Label();
-            lblStat4Title = new Label();
-            picStat4 = new PictureBox();
-            panelRecentOrders = new Panel();
-            lnkViewAllOrders = new LinkLabel();
-            dgvRecentOrders = new DataGridView();
-            colMaDon = new DataGridViewTextBoxColumn();
-            colKhachHang = new DataGridViewTextBoxColumn();
-            colNgayDat = new DataGridViewTextBoxColumn();
-            colTongTien = new DataGridViewTextBoxColumn();
-            colTrangThai = new DataGridViewTextBoxColumn();
-            lblRecentOrdersTitle = new Label();
-            panelTopFlowers = new Panel();
-            lnkViewAllFlowers = new LinkLabel();
-            lblTopFlowersTitle = new Label();
-            panelFlower1 = new Panel();
-            lblFlower1Sales = new Label();
-            lblFlower1Name = new Label();
-            picFlower1 = new PictureBox();
-            panelFlower2 = new Panel();
-            lblFlower2Sales = new Label();
-            lblFlower2Name = new Label();
-            picFlower2 = new PictureBox();
-            panelFlower3 = new Panel();
-            lblFlower3Sales = new Label();
-            lblFlower3Name = new Label();
-            picFlower3 = new PictureBox();
-
-            panelSidebar.SuspendLayout();
-            panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogoIcon).BeginInit();
-            panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAdminAvatar).BeginInit();
-            panelStats1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat1).BeginInit();
-            panelStats2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat2).BeginInit();
-            panelStats3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat3).BeginInit();
-            panelStats4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat4).BeginInit();
-            panelRecentOrders.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvRecentOrders).BeginInit();
-            panelTopFlowers.SuspendLayout();
-            panelFlower1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picFlower1).BeginInit();
-            panelFlower2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picFlower2).BeginInit();
-            panelFlower3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picFlower3).BeginInit();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelSidebar = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnChangePass = new System.Windows.Forms.Button();
+            this.btnStatistics = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.btnSale = new System.Windows.Forms.Button();
+            this.btnStaff = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
+            this.btnFlower = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lblSubLogo = new System.Windows.Forms.Label();
+            this.lblMainLogo = new System.Windows.Forms.Label();
+            this.picLogoIcon = new System.Windows.Forms.PictureBox();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblAdminName = new System.Windows.Forms.Label();
+            this.picAdminAvatar = new System.Windows.Forms.PictureBox();
+            this.lblWelcomeSub = new System.Windows.Forms.Label();
+            this.lblWelcomeMain = new System.Windows.Forms.Label();
+            this.panelStats1 = new System.Windows.Forms.Panel();
+            this.lblStat1Num = new System.Windows.Forms.Label();
+            this.lblStat1Title = new System.Windows.Forms.Label();
+            this.picStat1 = new System.Windows.Forms.PictureBox();
+            this.panelStats2 = new System.Windows.Forms.Panel();
+            this.lblStat2Num = new System.Windows.Forms.Label();
+            this.lblStat2Title = new System.Windows.Forms.Label();
+            this.picStat2 = new System.Windows.Forms.PictureBox();
+            this.panelStats3 = new System.Windows.Forms.Panel();
+            this.lblStat3Num = new System.Windows.Forms.Label();
+            this.lblStat3Title = new System.Windows.Forms.Label();
+            this.picStat3 = new System.Windows.Forms.PictureBox();
+            this.panelStats4 = new System.Windows.Forms.Panel();
+            this.lblStat4Num = new System.Windows.Forms.Label();
+            this.lblStat4Title = new System.Windows.Forms.Label();
+            this.picStat4 = new System.Windows.Forms.PictureBox();
+            this.panelRecentOrders = new System.Windows.Forms.Panel();
+            this.lnkViewAllOrders = new System.Windows.Forms.LinkLabel();
+            this.dgvRecentOrders = new System.Windows.Forms.DataGridView();
+            this.colMaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgayDat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblRecentOrdersTitle = new System.Windows.Forms.Label();
+            this.panelTopFlowers = new System.Windows.Forms.Panel();
+            this.lnkViewAllFlowers = new System.Windows.Forms.LinkLabel();
+            this.lblTopFlowersTitle = new System.Windows.Forms.Label();
+            this.panelFlower1 = new System.Windows.Forms.Panel();
+            this.lblFlower1Sales = new System.Windows.Forms.Label();
+            this.lblFlower1Name = new System.Windows.Forms.Label();
+            this.picFlower1 = new System.Windows.Forms.PictureBox();
+            this.panelFlower2 = new System.Windows.Forms.Panel();
+            this.lblFlower2Sales = new System.Windows.Forms.Label();
+            this.lblFlower2Name = new System.Windows.Forms.Label();
+            this.picFlower2 = new System.Windows.Forms.PictureBox();
+            this.panelFlower3 = new System.Windows.Forms.Panel();
+            this.lblFlower3Sales = new System.Windows.Forms.Label();
+            this.lblFlower3Name = new System.Windows.Forms.Label();
+            this.picFlower3 = new System.Windows.Forms.PictureBox();
+            this.panelSidebar.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoIcon)).BeginInit();
+            this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdminAvatar)).BeginInit();
+            this.panelStats1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat1)).BeginInit();
+            this.panelStats2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat2)).BeginInit();
+            this.panelStats3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat3)).BeginInit();
+            this.panelStats4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat4)).BeginInit();
+            this.panelRecentOrders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecentOrders)).BeginInit();
+            this.panelTopFlowers.SuspendLayout();
+            this.panelFlower1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlower1)).BeginInit();
+            this.panelFlower2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlower2)).BeginInit();
+            this.panelFlower3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlower3)).BeginInit();
+            this.SuspendLayout();
+            // 
             // panelSidebar
-            panelSidebar.BackColor = Color.White;
-            panelSidebar.Controls.Add(lblTime);
-            panelSidebar.Controls.Add(btnLogout);
-            panelSidebar.Controls.Add(btnChangePass);
-            panelSidebar.Controls.Add(btnStatistics);
-            panelSidebar.Controls.Add(btnOrder);
-            panelSidebar.Controls.Add(btnSale);
-            panelSidebar.Controls.Add(btnStaff);
-            panelSidebar.Controls.Add(btnCategory);
-            panelSidebar.Controls.Add(btnFlower);
-            panelSidebar.Controls.Add(btnHome);
-            panelSidebar.Controls.Add(panelLogo);
-            panelSidebar.Dock = DockStyle.Left;
-            panelSidebar.Location = new Point(0, 0);
-            panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(220, 720);
-            panelSidebar.TabIndex = 0;
+            // 
+            this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.lblTime);
+            this.panelSidebar.Controls.Add(this.btnLogout);
+            this.panelSidebar.Controls.Add(this.btnChangePass);
+            this.panelSidebar.Controls.Add(this.btnStatistics);
+            this.panelSidebar.Controls.Add(this.btnOrder);
+            this.panelSidebar.Controls.Add(this.btnSale);
+            this.panelSidebar.Controls.Add(this.btnStaff);
+            this.panelSidebar.Controls.Add(this.btnCategory);
+            this.panelSidebar.Controls.Add(this.btnFlower);
+            this.panelSidebar.Controls.Add(this.btnHome);
+            this.panelSidebar.Controls.Add(this.panelLogo);
+            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
+            this.panelSidebar.Name = "panelSidebar";
+            this.panelSidebar.Size = new System.Drawing.Size(220, 720);
+            this.panelSidebar.TabIndex = 0;
+            // 
             // lblTime
-            lblTime.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblTime.AutoSize = true;
-            lblTime.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTime.ForeColor = Color.Gray;
-            lblTime.Location = new Point(15, 690);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(160, 15);
-            lblTime.TabIndex = 10;
-            lblTime.Text = "Thứ Hai, 13/10/2025 14:32";
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.Gray;
+            this.lblTime.Location = new System.Drawing.Point(15, 690);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(255, 30);
+            this.lblTime.TabIndex = 10;
+            this.lblTime.Text = "Thứ Hai, 13/10/2025 14:32";
+            // 
             // btnLogout
-            btnLogout.FlatAppearance.BorderSize = 0;
-            btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 10F);
-            btnLogout.ForeColor = Color.DimGray;
-            btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogout.Location = new Point(0, 525);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Padding = new Padding(15, 0, 0, 0);
-            btnLogout.Size = new Size(220, 40);
-            btnLogout.TabIndex = 9;
-            btnLogout.Text = "      Đăng xuất";
-            btnLogout.TextAlign = ContentAlignment.MiddleLeft;
-            btnLogout.UseVisualStyleBackColor = true;
+            // 
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnLogout.ForeColor = System.Drawing.Color.DimGray;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 525);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(220, 40);
+            this.btnLogout.TabIndex = 9;
+            this.btnLogout.Text = "      Đăng xuất";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
             // btnChangePass
-            btnChangePass.FlatAppearance.BorderSize = 0;
-            btnChangePass.FlatStyle = FlatStyle.Flat;
-            btnChangePass.Font = new Font("Segoe UI", 10F);
-            btnChangePass.ForeColor = Color.DimGray;
-            btnChangePass.ImageAlign = ContentAlignment.MiddleLeft;
-            btnChangePass.Location = new Point(0, 480);
-            btnChangePass.Name = "btnChangePass";
-            btnChangePass.Padding = new Padding(15, 0, 0, 0);
-            btnChangePass.Size = new Size(220, 40);
-            btnChangePass.TabIndex = 8;
-            btnChangePass.Text = "      Đổi mật khẩu";
-            btnChangePass.TextAlign = ContentAlignment.MiddleLeft;
-            btnChangePass.UseVisualStyleBackColor = true;
+            // 
+            this.btnChangePass.FlatAppearance.BorderSize = 0;
+            this.btnChangePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnChangePass.ForeColor = System.Drawing.Color.DimGray;
+            this.btnChangePass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangePass.Location = new System.Drawing.Point(0, 480);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnChangePass.Size = new System.Drawing.Size(220, 40);
+            this.btnChangePass.TabIndex = 8;
+            this.btnChangePass.Text = "      Đổi mật khẩu";
+            this.btnChangePass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangePass.UseVisualStyleBackColor = true;
+            // 
             // btnStatistics
-            btnStatistics.FlatAppearance.BorderSize = 0;
-            btnStatistics.FlatStyle = FlatStyle.Flat;
-            btnStatistics.Font = new Font("Segoe UI", 10F);
-            btnStatistics.ForeColor = Color.DimGray;
-            btnStatistics.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStatistics.Location = new Point(0, 435);
-            btnStatistics.Name = "btnStatistics";
-            btnStatistics.Padding = new Padding(15, 0, 0, 0);
-            btnStatistics.Size = new Size(220, 40);
-            btnStatistics.TabIndex = 7;
-            btnStatistics.Text = "      Thống kê";
-            btnStatistics.TextAlign = ContentAlignment.MiddleLeft;
-            btnStatistics.UseVisualStyleBackColor = true;
+            // 
+            this.btnStatistics.FlatAppearance.BorderSize = 0;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnStatistics.ForeColor = System.Drawing.Color.DimGray;
+            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Location = new System.Drawing.Point(0, 435);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnStatistics.Size = new System.Drawing.Size(220, 40);
+            this.btnStatistics.TabIndex = 7;
+            this.btnStatistics.Text = "      Thống kê";
+            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.UseVisualStyleBackColor = true;
+            // 
             // btnOrder
-            btnOrder.FlatAppearance.BorderSize = 0;
-            btnOrder.FlatStyle = FlatStyle.Flat;
-            btnOrder.Font = new Font("Segoe UI", 10F);
-            btnOrder.ForeColor = Color.DimGray;
-            btnOrder.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOrder.Location = new Point(0, 390);
-            btnOrder.Name = "btnOrder";
-            btnOrder.Padding = new Padding(15, 0, 0, 0);
-            btnOrder.Size = new Size(220, 40);
-            btnOrder.TabIndex = 6;
-            btnOrder.Text = "      Quản lý đơn hàng";
-            btnOrder.TextAlign = ContentAlignment.MiddleLeft;
-            btnOrder.UseVisualStyleBackColor = true;
+            // 
+            this.btnOrder.FlatAppearance.BorderSize = 0;
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnOrder.ForeColor = System.Drawing.Color.DimGray;
+            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.Location = new System.Drawing.Point(0, 390);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnOrder.Size = new System.Drawing.Size(220, 40);
+            this.btnOrder.TabIndex = 6;
+            this.btnOrder.Text = "      Quản lý đơn hàng";
+            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.UseVisualStyleBackColor = true;
+            // 
             // btnSale
-            btnSale.FlatAppearance.BorderSize = 0;
-            btnSale.FlatStyle = FlatStyle.Flat;
-            btnSale.Font = new Font("Segoe UI", 10F);
-            btnSale.ForeColor = Color.DimGray;
-            btnSale.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSale.Location = new Point(0, 345);
-            btnSale.Name = "btnSale";
-            btnSale.Padding = new Padding(15, 0, 0, 0);
-            btnSale.Size = new Size(220, 40);
-            btnSale.TabIndex = 5;
-            btnSale.Text = "      Quản lý bán hàng";
-            btnSale.TextAlign = ContentAlignment.MiddleLeft;
-            btnSale.UseVisualStyleBackColor = true;
+            // 
+            this.btnSale.FlatAppearance.BorderSize = 0;
+            this.btnSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSale.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSale.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSale.Location = new System.Drawing.Point(0, 345);
+            this.btnSale.Name = "btnSale";
+            this.btnSale.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSale.Size = new System.Drawing.Size(220, 40);
+            this.btnSale.TabIndex = 5;
+            this.btnSale.Text = "      Quản lý bán hàng";
+            this.btnSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSale.UseVisualStyleBackColor = true;
+            // 
             // btnStaff
-            btnStaff.FlatAppearance.BorderSize = 0;
-            btnStaff.FlatStyle = FlatStyle.Flat;
-            btnStaff.Font = new Font("Segoe UI", 10F);
-            btnStaff.ForeColor = Color.DimGray;
-            btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStaff.Location = new Point(0, 300);
-            btnStaff.Name = "btnStaff";
-            btnStaff.Padding = new Padding(15, 0, 0, 0);
-            btnStaff.Size = new Size(220, 40);
-            btnStaff.TabIndex = 4;
-            btnStaff.Text = "      Quản lý nhân viên";
-            btnStaff.TextAlign = ContentAlignment.MiddleLeft;
-            btnStaff.UseVisualStyleBackColor = true;
+            // 
+            this.btnStaff.FlatAppearance.BorderSize = 0;
+            this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStaff.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnStaff.ForeColor = System.Drawing.Color.DimGray;
+            this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStaff.Location = new System.Drawing.Point(0, 300);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnStaff.Size = new System.Drawing.Size(220, 40);
+            this.btnStaff.TabIndex = 4;
+            this.btnStaff.Text = "      Quản lý nhân viên";
+            this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStaff.UseVisualStyleBackColor = true;
+            // 
             // btnCategory
-            btnCategory.FlatAppearance.BorderSize = 0;
-            btnCategory.FlatStyle = FlatStyle.Flat;
-            btnCategory.Font = new Font("Segoe UI", 10F);
-            btnCategory.ForeColor = Color.DimGray;
-            btnCategory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCategory.Location = new Point(0, 255);
-            btnCategory.Name = "btnCategory";
-            btnCategory.Padding = new Padding(15, 0, 0, 0);
-            btnCategory.Size = new Size(220, 40);
-            btnCategory.TabIndex = 3;
-            btnCategory.Text = "      Quản lý danh mục";
-            btnCategory.TextAlign = ContentAlignment.MiddleLeft;
-            btnCategory.UseVisualStyleBackColor = true;
+            // 
+            this.btnCategory.FlatAppearance.BorderSize = 0;
+            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnCategory.ForeColor = System.Drawing.Color.DimGray;
+            this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategory.Location = new System.Drawing.Point(0, 255);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnCategory.Size = new System.Drawing.Size(220, 40);
+            this.btnCategory.TabIndex = 3;
+            this.btnCategory.Text = "      Quản lý danh mục";
+            this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategory.UseVisualStyleBackColor = true;
+            // 
             // btnFlower
-            btnFlower.FlatAppearance.BorderSize = 0;
-            btnFlower.FlatStyle = FlatStyle.Flat;
-            btnFlower.Font = new Font("Segoe UI", 10F);
-            btnFlower.ForeColor = Color.DimGray;
-            btnFlower.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFlower.Location = new Point(0, 210);
-            btnFlower.Name = "btnFlower";
-            btnFlower.Padding = new Padding(15, 0, 0, 0);
-            btnFlower.Size = new Size(220, 40);
-            btnFlower.TabIndex = 2;
-            btnFlower.Text = "      Quản lý hoa";
-            btnFlower.TextAlign = ContentAlignment.MiddleLeft;
-            btnFlower.UseVisualStyleBackColor = true;
+            // 
+            this.btnFlower.FlatAppearance.BorderSize = 0;
+            this.btnFlower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFlower.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnFlower.ForeColor = System.Drawing.Color.DimGray;
+            this.btnFlower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFlower.Location = new System.Drawing.Point(0, 210);
+            this.btnFlower.Name = "btnFlower";
+            this.btnFlower.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnFlower.Size = new System.Drawing.Size(220, 40);
+            this.btnFlower.TabIndex = 2;
+            this.btnFlower.Text = "      Quản lý hoa";
+            this.btnFlower.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFlower.UseVisualStyleBackColor = true;
+            // 
             // btnHome
-            btnHome.BackColor = Color.FromArgb(253, 237, 237);
-            btnHome.FlatAppearance.BorderSize = 0;
-            btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnHome.ForeColor = Color.FromArgb(224, 98, 103);
-            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(0, 165);
-            btnHome.Name = "btnHome";
-            btnHome.Padding = new Padding(15, 0, 0, 0);
-            btnHome.Size = new Size(220, 40);
-            btnHome.TabIndex = 1;
-            btnHome.Text = "      Trang chủ";
-            btnHome.TextAlign = ContentAlignment.MiddleLeft;
-            btnHome.UseVisualStyleBackColor = false;
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 165);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(220, 40);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "      Trang chủ";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.UseVisualStyleBackColor = false;
+            // 
             // panelLogo
-            panelLogo.Controls.Add(btnSearch);
-            panelLogo.Controls.Add(lblSubLogo);
-            panelLogo.Controls.Add(lblMainLogo);
-            panelLogo.Controls.Add(picLogoIcon);
-            panelLogo.Dock = DockStyle.Top;
-            panelLogo.Location = new Point(0, 0);
-            panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(220, 150);
-            panelLogo.TabIndex = 0;
+            // 
+            this.panelLogo.Controls.Add(this.btnSearch);
+            this.panelLogo.Controls.Add(this.lblSubLogo);
+            this.panelLogo.Controls.Add(this.lblMainLogo);
+            this.panelLogo.Controls.Add(this.picLogoIcon);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(220, 150);
+            this.panelLogo.TabIndex = 0;
+            // 
             // btnSearch
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI", 10F);
-            btnSearch.ForeColor = Color.DimGray;
-            btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearch.Location = new Point(0, 105);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Padding = new Padding(15, 0, 0, 0);
-            btnSearch.Size = new Size(220, 40);
-            btnSearch.TabIndex = 3;
-            btnSearch.Text = "      Tìm kiếm";
-            btnSearch.TextAlign = ContentAlignment.MiddleLeft;
-            btnSearch.UseVisualStyleBackColor = true;
+            // 
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(0, 105);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearch.Size = new System.Drawing.Size(220, 40);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "      Tìm kiếm";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // lblSubLogo
-            lblSubLogo.AutoSize = true;
-            lblSubLogo.Font = new Font("Segoe UI", 8.5F);
-            lblSubLogo.ForeColor = Color.Gray;
-            lblSubLogo.Location = new Point(68, 62);
-            lblSubLogo.Name = "lblSubLogo";
-            lblSubLogo.Size = new Size(102, 15);
-            lblSubLogo.TabIndex = 2;
-            lblSubLogo.Text = "Hoa tươi mỗi ngày";
+            // 
+            this.lblSubLogo.AutoSize = true;
+            this.lblSubLogo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblSubLogo.ForeColor = System.Drawing.Color.Gray;
+            this.lblSubLogo.Location = new System.Drawing.Point(68, 62);
+            this.lblSubLogo.Name = "lblSubLogo";
+            this.lblSubLogo.Size = new System.Drawing.Size(176, 28);
+            this.lblSubLogo.TabIndex = 2;
+            this.lblSubLogo.Text = "Hoa tươi mỗi ngày";
+            // 
             // lblMainLogo
-            lblMainLogo.AutoSize = true;
-            lblMainLogo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblMainLogo.ForeColor = Color.FromArgb(50, 50, 50);
-            lblMainLogo.Location = new Point(67, 38);
-            lblMainLogo.Name = "lblMainLogo";
-            lblMainLogo.Size = new Size(121, 21);
-            lblMainLogo.TabIndex = 1;
-            lblMainLogo.Text = "Cửa Hàng Hoa";
+            // 
+            this.lblMainLogo.AutoSize = true;
+            this.lblMainLogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblMainLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.lblMainLogo.Location = new System.Drawing.Point(67, 38);
+            this.lblMainLogo.Name = "lblMainLogo";
+            this.lblMainLogo.Size = new System.Drawing.Size(207, 38);
+            this.lblMainLogo.TabIndex = 1;
+            this.lblMainLogo.Text = "Cửa Hàng Hoa";
+            // 
             // picLogoIcon
-            picLogoIcon.BackColor = Color.FromArgb(253, 237, 237);
-            picLogoIcon.Location = new Point(22, 38);
-            picLogoIcon.Name = "picLogoIcon";
-            picLogoIcon.Size = new Size(40, 40);
-            picLogoIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-            picLogoIcon.TabIndex = 0;
-            picLogoIcon.TabStop = false;
+            // 
+            this.picLogoIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.picLogoIcon.Location = new System.Drawing.Point(22, 38);
+            this.picLogoIcon.Name = "picLogoIcon";
+            this.picLogoIcon.Size = new System.Drawing.Size(40, 40);
+            this.picLogoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogoIcon.TabIndex = 0;
+            this.picLogoIcon.TabStop = false;
+            // 
             // panelHeader
-            panelHeader.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelHeader.BackColor = Color.FromArgb(253, 242, 242);
-            panelHeader.Controls.Add(lblAdminName);
-            panelHeader.Controls.Add(picAdminAvatar);
-            panelHeader.Controls.Add(lblWelcomeSub);
-            panelHeader.Controls.Add(lblWelcomeMain);
-            panelHeader.Location = new Point(240, 20);
-            panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1020, 110);
-            panelHeader.TabIndex = 1;
+            // 
+            this.panelHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panelHeader.Controls.Add(this.lblAdminName);
+            this.panelHeader.Controls.Add(this.picAdminAvatar);
+            this.panelHeader.Controls.Add(this.lblWelcomeSub);
+            this.panelHeader.Controls.Add(this.lblWelcomeMain);
+            this.panelHeader.Location = new System.Drawing.Point(240, 20);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1020, 110);
+            this.panelHeader.TabIndex = 1;
+            // 
             // lblAdminName
-            lblAdminName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblAdminName.AutoSize = true;
-            lblAdminName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblAdminName.Location = new Point(925, 45);
-            lblAdminName.Name = "lblAdminName";
-            lblAdminName.Size = new Size(47, 19);
-            lblAdminName.TabIndex = 3;
-            lblAdminName.Text = "Admin";
+            // 
+            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAdminName.AutoSize = true;
+            this.lblAdminName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAdminName.Location = new System.Drawing.Point(925, 45);
+            this.lblAdminName.Name = "lblAdminName";
+            this.lblAdminName.Size = new System.Drawing.Size(90, 32);
+            this.lblAdminName.TabIndex = 3;
+            this.lblAdminName.Text = "Admin";
+            // 
             // picAdminAvatar
-            picAdminAvatar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            picAdminAvatar.BackColor = Color.FromArgb(224, 98, 103);
-            picAdminAvatar.Location = new Point(880, 39);
-            picAdminAvatar.Name = "picAdminAvatar";
-            picAdminAvatar.Size = new Size(32, 32);
-            picAdminAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
-            picAdminAvatar.TabIndex = 2;
-            picAdminAvatar.TabStop = false;
+            // 
+            this.picAdminAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picAdminAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
+            this.picAdminAvatar.Location = new System.Drawing.Point(880, 39);
+            this.picAdminAvatar.Name = "picAdminAvatar";
+            this.picAdminAvatar.Size = new System.Drawing.Size(32, 32);
+            this.picAdminAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdminAvatar.TabIndex = 2;
+            this.picAdminAvatar.TabStop = false;
+            // 
             // lblWelcomeSub
-            lblWelcomeSub.AutoSize = true;
-            lblWelcomeSub.Font = new Font("Segoe UI", 9.5F);
-            lblWelcomeSub.ForeColor = Color.DimGray;
-            lblWelcomeSub.Location = new Point(25, 62);
-            lblWelcomeSub.Name = "lblWelcomeSub";
-            lblWelcomeSub.Size = new Size(228, 17);
-            lblWelcomeSub.TabIndex = 1;
-            lblWelcomeSub.Text = "Chúc bạn một ngày làm việc hiệu quả!";
+            // 
+            this.lblWelcomeSub.AutoSize = true;
+            this.lblWelcomeSub.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblWelcomeSub.ForeColor = System.Drawing.Color.DimGray;
+            this.lblWelcomeSub.Location = new System.Drawing.Point(25, 62);
+            this.lblWelcomeSub.Name = "lblWelcomeSub";
+            this.lblWelcomeSub.Size = new System.Drawing.Size(405, 31);
+            this.lblWelcomeSub.TabIndex = 1;
+            this.lblWelcomeSub.Text = "Chúc bạn một ngày làm việc hiệu quả!";
+            // 
             // lblWelcomeMain
-            lblWelcomeMain.AutoSize = true;
-            lblWelcomeMain.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            lblWelcomeMain.ForeColor = Color.FromArgb(40, 40, 40);
-            lblWelcomeMain.Location = new Point(23, 22);
-            lblWelcomeMain.Name = "lblWelcomeMain";
-            lblWelcomeMain.Size = new Size(190, 30);
-            lblWelcomeMain.TabIndex = 0;
-            lblWelcomeMain.Text = "Xin chào, Admin!";
+            // 
+            this.lblWelcomeMain.AutoSize = true;
+            this.lblWelcomeMain.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblWelcomeMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblWelcomeMain.Location = new System.Drawing.Point(23, 22);
+            this.lblWelcomeMain.Name = "lblWelcomeMain";
+            this.lblWelcomeMain.Size = new System.Drawing.Size(327, 51);
+            this.lblWelcomeMain.TabIndex = 0;
+            this.lblWelcomeMain.Text = "Xin chào, Admin!";
+            // 
             // panelStats1
-            panelStats1.BackColor = Color.White;
-            panelStats1.Controls.Add(lblStat1Num);
-            panelStats1.Controls.Add(lblStat1Title);
-            panelStats1.Controls.Add(picStat1);
-            panelStats1.Location = new Point(240, 150);
-            panelStats1.Name = "panelStats1";
-            panelStats1.Size = new Size(240, 110);
-            panelStats1.TabIndex = 2;
+            // 
+            this.panelStats1.BackColor = System.Drawing.Color.White;
+            this.panelStats1.Controls.Add(this.lblStat1Num);
+            this.panelStats1.Controls.Add(this.lblStat1Title);
+            this.panelStats1.Controls.Add(this.picStat1);
+            this.panelStats1.Location = new System.Drawing.Point(240, 150);
+            this.panelStats1.Name = "panelStats1";
+            this.panelStats1.Size = new System.Drawing.Size(240, 110);
+            this.panelStats1.TabIndex = 2;
+            // 
             // lblStat1Num
-            lblStat1Num.AutoSize = true;
-            lblStat1Num.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblStat1Num.ForeColor = Color.FromArgb(40, 40, 40);
-            lblStat1Num.Location = new Point(95, 22);
-            lblStat1Num.Name = "lblStat1Num";
-            lblStat1Num.Size = new Size(55, 37);
-            lblStat1Num.TabIndex = 0;
-            lblStat1Num.Text = "0";
+            // 
+            this.lblStat1Num.AutoSize = true;
+            this.lblStat1Num.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStat1Num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblStat1Num.Location = new System.Drawing.Point(95, 22);
+            this.lblStat1Num.Name = "lblStat1Num";
+            this.lblStat1Num.Size = new System.Drawing.Size(54, 62);
+            this.lblStat1Num.TabIndex = 0;
+            this.lblStat1Num.Text = "0";
+            // 
             // lblStat1Title
-            lblStat1Title.AutoSize = true;
-            lblStat1Title.Font = new Font("Segoe UI", 10F);
-            lblStat1Title.ForeColor = Color.Gray;
-            lblStat1Title.Location = new Point(97, 66);
-            lblStat1Title.Name = "lblStat1Title";
-            lblStat1Title.Size = new Size(73, 19);
-            lblStat1Title.TabIndex = 1;
-            lblStat1Title.Text = "Tổng số hoa";
+            // 
+            this.lblStat1Title.AutoSize = true;
+            this.lblStat1Title.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblStat1Title.ForeColor = System.Drawing.Color.Gray;
+            this.lblStat1Title.Location = new System.Drawing.Point(97, 66);
+            this.lblStat1Title.Name = "lblStat1Title";
+            this.lblStat1Title.Size = new System.Drawing.Size(147, 32);
+            this.lblStat1Title.TabIndex = 1;
+            this.lblStat1Title.Text = "Tổng số hoa";
+            // 
             // picStat1
-            picStat1.BackColor = Color.FromArgb(253, 237, 237);
-            picStat1.Location = new Point(20, 27);
-            picStat1.Name = "picStat1";
-            picStat1.Size = new Size(56, 56);
-            picStat1.SizeMode = PictureBoxSizeMode.StretchImage;
-            picStat1.TabIndex = 2;
-            picStat1.TabStop = false;
+            // 
+            this.picStat1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.picStat1.Location = new System.Drawing.Point(20, 27);
+            this.picStat1.Name = "picStat1";
+            this.picStat1.Size = new System.Drawing.Size(56, 56);
+            this.picStat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStat1.TabIndex = 2;
+            this.picStat1.TabStop = false;
+            // 
             // panelStats2
-            panelStats2.BackColor = Color.White;
-            panelStats2.Controls.Add(lblStat2Num);
-            panelStats2.Controls.Add(lblStat2Title);
-            panelStats2.Controls.Add(picStat2);
-            panelStats2.Location = new Point(500, 150);
-            panelStats2.Name = "panelStats2";
-            panelStats2.Size = new Size(240, 110);
-            panelStats2.TabIndex = 3;
+            // 
+            this.panelStats2.BackColor = System.Drawing.Color.White;
+            this.panelStats2.Controls.Add(this.lblStat2Num);
+            this.panelStats2.Controls.Add(this.lblStat2Title);
+            this.panelStats2.Controls.Add(this.picStat2);
+            this.panelStats2.Location = new System.Drawing.Point(500, 150);
+            this.panelStats2.Name = "panelStats2";
+            this.panelStats2.Size = new System.Drawing.Size(240, 110);
+            this.panelStats2.TabIndex = 3;
+            // 
             // lblStat2Num
-            lblStat2Num.AutoSize = true;
-            lblStat2Num.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblStat2Num.ForeColor = Color.FromArgb(40, 40, 40);
-            lblStat2Num.Location = new Point(95, 22);
-            lblStat2Num.Name = "lblStat2Num";
-            lblStat2Num.Size = new Size(38, 37);
-            lblStat2Num.TabIndex = 0;
-            lblStat2Num.Text = "0";
+            // 
+            this.lblStat2Num.AutoSize = true;
+            this.lblStat2Num.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStat2Num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblStat2Num.Location = new System.Drawing.Point(95, 22);
+            this.lblStat2Num.Name = "lblStat2Num";
+            this.lblStat2Num.Size = new System.Drawing.Size(54, 62);
+            this.lblStat2Num.TabIndex = 0;
+            this.lblStat2Num.Text = "0";
+            // 
             // lblStat2Title
-            lblStat2Title.AutoSize = true;
-            lblStat2Title.Font = new Font("Segoe UI", 10F);
-            lblStat2Title.ForeColor = Color.Gray;
-            lblStat2Title.Location = new Point(97, 66);
-            lblStat2Title.Name = "lblStat2Title";
-            lblStat2Title.Size = new Size(121, 19);
-            lblStat2Title.TabIndex = 1;
-            lblStat2Title.Text = "Đơn hàng hôm nay";
+            // 
+            this.lblStat2Title.AutoSize = true;
+            this.lblStat2Title.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblStat2Title.ForeColor = System.Drawing.Color.Gray;
+            this.lblStat2Title.Location = new System.Drawing.Point(97, 66);
+            this.lblStat2Title.Name = "lblStat2Title";
+            this.lblStat2Title.Size = new System.Drawing.Size(221, 32);
+            this.lblStat2Title.TabIndex = 1;
+            this.lblStat2Title.Text = "Đơn hàng hôm nay";
+            // 
             // picStat2
-            picStat2.BackColor = Color.FromArgb(232, 245, 233);
-            picStat2.Location = new Point(20, 27);
-            picStat2.Name = "picStat2";
-            picStat2.Size = new Size(56, 56);
-            picStat2.SizeMode = PictureBoxSizeMode.StretchImage;
-            picStat2.TabIndex = 2;
-            picStat2.TabStop = false;
+            // 
+            this.picStat2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
+            this.picStat2.Location = new System.Drawing.Point(20, 27);
+            this.picStat2.Name = "picStat2";
+            this.picStat2.Size = new System.Drawing.Size(56, 56);
+            this.picStat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStat2.TabIndex = 2;
+            this.picStat2.TabStop = false;
+            // 
             // panelStats3
-            panelStats3.BackColor = Color.White;
-            panelStats3.Controls.Add(lblStat3Num);
-            panelStats3.Controls.Add(lblStat3Title);
-            panelStats3.Controls.Add(picStat3);
-            panelStats3.Location = new Point(760, 150);
-            panelStats3.Name = "panelStats3";
-            panelStats3.Size = new Size(240, 110);
-            panelStats3.TabIndex = 4;
+            // 
+            this.panelStats3.BackColor = System.Drawing.Color.White;
+            this.panelStats3.Controls.Add(this.lblStat3Num);
+            this.panelStats3.Controls.Add(this.lblStat3Title);
+            this.panelStats3.Controls.Add(this.picStat3);
+            this.panelStats3.Location = new System.Drawing.Point(760, 150);
+            this.panelStats3.Name = "panelStats3";
+            this.panelStats3.Size = new System.Drawing.Size(240, 110);
+            this.panelStats3.TabIndex = 4;
+            // 
             // lblStat3Num
-            lblStat3Num.AutoSize = true;
-            lblStat3Num.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            lblStat3Num.ForeColor = Color.FromArgb(40, 40, 40);
-            lblStat3Num.Location = new Point(95, 26);
-            lblStat3Num.Name = "lblStat3Num";
-            lblStat3Num.Size = new Size(123, 30);
-            lblStat3Num.TabIndex = 0;
-            lblStat3Num.Text = "0đ";
+            // 
+            this.lblStat3Num.AutoSize = true;
+            this.lblStat3Num.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblStat3Num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblStat3Num.Location = new System.Drawing.Point(95, 26);
+            this.lblStat3Num.Name = "lblStat3Num";
+            this.lblStat3Num.Size = new System.Drawing.Size(68, 51);
+            this.lblStat3Num.TabIndex = 0;
+            this.lblStat3Num.Text = "0đ";
+            // 
             // lblStat3Title
-            lblStat3Title.AutoSize = true;
-            lblStat3Title.Font = new Font("Segoe UI", 10F);
-            lblStat3Title.ForeColor = Color.Gray;
-            lblStat3Title.Location = new Point(97, 66);
-            lblStat3Title.Name = "lblStat3Title";
-            lblStat3Title.Size = new Size(117, 19);
-            lblStat3Title.TabIndex = 1;
-            lblStat3Title.Text = "Doanh thu hôm nay";
+            // 
+            this.lblStat3Title.AutoSize = true;
+            this.lblStat3Title.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblStat3Title.ForeColor = System.Drawing.Color.Gray;
+            this.lblStat3Title.Location = new System.Drawing.Point(97, 66);
+            this.lblStat3Title.Name = "lblStat3Title";
+            this.lblStat3Title.Size = new System.Drawing.Size(229, 32);
+            this.lblStat3Title.TabIndex = 1;
+            this.lblStat3Title.Text = "Doanh thu hôm nay";
+            // 
             // picStat3
-            picStat3.BackColor = Color.FromArgb(255, 243, 224);
-            picStat3.Location = new Point(20, 27);
-            picStat3.Name = "picStat3";
-            picStat3.Size = new Size(56, 56);
-            picStat3.SizeMode = PictureBoxSizeMode.StretchImage;
-            picStat3.TabIndex = 2;
-            picStat3.TabStop = false;
+            // 
+            this.picStat3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(224)))));
+            this.picStat3.Location = new System.Drawing.Point(20, 27);
+            this.picStat3.Name = "picStat3";
+            this.picStat3.Size = new System.Drawing.Size(56, 56);
+            this.picStat3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStat3.TabIndex = 2;
+            this.picStat3.TabStop = false;
+            // 
             // panelStats4
-            panelStats4.BackColor = Color.White;
-            panelStats4.Controls.Add(lblStat4Num);
-            panelStats4.Controls.Add(lblStat4Title);
-            panelStats4.Controls.Add(picStat4);
-            panelStats4.Location = new Point(1020, 150);
-            panelStats4.Name = "panelStats4";
-            panelStats4.Size = new Size(240, 110);
-            panelStats4.TabIndex = 5;
+            // 
+            this.panelStats4.BackColor = System.Drawing.Color.White;
+            this.panelStats4.Controls.Add(this.lblStat4Num);
+            this.panelStats4.Controls.Add(this.lblStat4Title);
+            this.panelStats4.Controls.Add(this.picStat4);
+            this.panelStats4.Location = new System.Drawing.Point(1020, 150);
+            this.panelStats4.Name = "panelStats4";
+            this.panelStats4.Size = new System.Drawing.Size(240, 110);
+            this.panelStats4.TabIndex = 5;
+            // 
             // lblStat4Num
-            lblStat4Num.AutoSize = true;
-            lblStat4Num.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblStat4Num.ForeColor = Color.FromArgb(40, 40, 40);
-            lblStat4Num.Location = new Point(95, 22);
-            lblStat4Num.Name = "lblStat4Num";
-            lblStat4Num.Size = new Size(28, 37);
-            lblStat4Num.TabIndex = 0;
-            lblStat4Num.Text = "0";
+            // 
+            this.lblStat4Num.AutoSize = true;
+            this.lblStat4Num.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStat4Num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblStat4Num.Location = new System.Drawing.Point(95, 22);
+            this.lblStat4Num.Name = "lblStat4Num";
+            this.lblStat4Num.Size = new System.Drawing.Size(54, 62);
+            this.lblStat4Num.TabIndex = 0;
+            this.lblStat4Num.Text = "0";
+            // 
             // lblStat4Title
-            lblStat4Title.AutoSize = true;
-            lblStat4Title.Font = new Font("Segoe UI", 10F);
-            lblStat4Title.ForeColor = Color.Gray;
-            lblStat4Title.Location = new Point(97, 66);
-            lblStat4Title.Name = "lblStat4Title";
-            lblStat4Title.Size = new Size(68, 19);
-            lblStat4Title.TabIndex = 1;
-            lblStat4Title.Text = "Nhân viên";
+            // 
+            this.lblStat4Title.AutoSize = true;
+            this.lblStat4Title.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblStat4Title.ForeColor = System.Drawing.Color.Gray;
+            this.lblStat4Title.Location = new System.Drawing.Point(97, 66);
+            this.lblStat4Title.Name = "lblStat4Title";
+            this.lblStat4Title.Size = new System.Drawing.Size(124, 32);
+            this.lblStat4Title.TabIndex = 1;
+            this.lblStat4Title.Text = "Nhân viên";
+            // 
             // picStat4
-            picStat4.BackColor = Color.FromArgb(227, 242, 253);
-            picStat4.Location = new Point(20, 27);
-            picStat4.Name = "picStat4";
-            picStat4.Size = new Size(56, 56);
-            picStat4.SizeMode = PictureBoxSizeMode.StretchImage;
-            picStat4.TabIndex = 2;
-            picStat4.TabStop = false;
+            // 
+            this.picStat4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.picStat4.Location = new System.Drawing.Point(20, 27);
+            this.picStat4.Name = "picStat4";
+            this.picStat4.Size = new System.Drawing.Size(56, 56);
+            this.picStat4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStat4.TabIndex = 2;
+            this.picStat4.TabStop = false;
+            // 
             // panelRecentOrders
-            panelRecentOrders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panelRecentOrders.BackColor = Color.White;
-            panelRecentOrders.Controls.Add(lnkViewAllOrders);
-            panelRecentOrders.Controls.Add(dgvRecentOrders);
-            panelRecentOrders.Controls.Add(lblRecentOrdersTitle);
-            panelRecentOrders.Location = new Point(240, 280);
-            panelRecentOrders.Name = "panelRecentOrders";
-            panelRecentOrders.Size = new Size(620, 420);
-            panelRecentOrders.TabIndex = 6;
-            // lblRecentOrdersTitle
-            lblRecentOrdersTitle.AutoSize = true;
-            lblRecentOrdersTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblRecentOrdersTitle.ForeColor = Color.FromArgb(40, 40, 40);
-            lblRecentOrdersTitle.Location = new Point(20, 15);
-            lblRecentOrdersTitle.Name = "lblRecentOrdersTitle";
-            lblRecentOrdersTitle.Size = new Size(139, 21);
-            lblRecentOrdersTitle.TabIndex = 0;
-            lblRecentOrdersTitle.Text = "Đơn hàng gần đây";
+            // 
+            this.panelRecentOrders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelRecentOrders.BackColor = System.Drawing.Color.White;
+            this.panelRecentOrders.Controls.Add(this.lnkViewAllOrders);
+            this.panelRecentOrders.Controls.Add(this.dgvRecentOrders);
+            this.panelRecentOrders.Controls.Add(this.lblRecentOrdersTitle);
+            this.panelRecentOrders.Location = new System.Drawing.Point(240, 280);
+            this.panelRecentOrders.Name = "panelRecentOrders";
+            this.panelRecentOrders.Size = new System.Drawing.Size(620, 420);
+            this.panelRecentOrders.TabIndex = 6;
+            // 
             // lnkViewAllOrders
-            lnkViewAllOrders.ActiveLinkColor = Color.FromArgb(224, 98, 103);
-            lnkViewAllOrders.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lnkViewAllOrders.AutoSize = true;
-            lnkViewAllOrders.Font = new Font("Segoe UI", 9.5F);
-            lnkViewAllOrders.LinkColor = Color.FromArgb(224, 98, 103);
-            lnkViewAllOrders.Location = new Point(520, 19);
-            lnkViewAllOrders.Name = "lnkViewAllOrders";
-            lnkViewAllOrders.Size = new Size(80, 17);
-            lnkViewAllOrders.TabIndex = 1;
-            lnkViewAllOrders.TabStop = true;
-            lnkViewAllOrders.Text = "Xem tất cả →";
+            // 
+            this.lnkViewAllOrders.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
+            this.lnkViewAllOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkViewAllOrders.AutoSize = true;
+            this.lnkViewAllOrders.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lnkViewAllOrders.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
+            this.lnkViewAllOrders.Location = new System.Drawing.Point(520, 19);
+            this.lnkViewAllOrders.Name = "lnkViewAllOrders";
+            this.lnkViewAllOrders.Size = new System.Drawing.Size(149, 31);
+            this.lnkViewAllOrders.TabIndex = 1;
+            this.lnkViewAllOrders.TabStop = true;
+            this.lnkViewAllOrders.Text = "Xem tất cả →";
+            // 
             // dgvRecentOrders
-            dgvRecentOrders.AllowUserToAddRows = false;
-            dgvRecentOrders.AllowUserToDeleteRows = false;
-            dgvRecentOrders.AllowUserToResizeRows = false;
-            dgvRecentOrders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvRecentOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvRecentOrders.BackgroundColor = Color.White;
-            dgvRecentOrders.BorderStyle = BorderStyle.None;
-            dgvRecentOrders.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvRecentOrders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            headerStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            headerStyle.BackColor = Color.FromArgb(253, 242, 242);
-            headerStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            headerStyle.ForeColor = Color.FromArgb(80, 80, 80);
-            headerStyle.SelectionBackColor = Color.FromArgb(253, 242, 242);
-            headerStyle.SelectionForeColor = Color.FromArgb(80, 80, 80);
-            headerStyle.WrapMode = DataGridViewTriState.True;
-            dgvRecentOrders.ColumnHeadersDefaultCellStyle = headerStyle;
-            dgvRecentOrders.ColumnHeadersHeight = 40;
-            dgvRecentOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvRecentOrders.Columns.AddRange(new DataGridViewColumn[] { colMaDon, colKhachHang, colNgayDat, colTongTien, colTrangThai });
-            cellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            cellStyle.BackColor = Color.White;
-            cellStyle.Font = new Font("Segoe UI", 9.5F);
-            cellStyle.ForeColor = Color.FromArgb(60, 60, 60);
-            cellStyle.SelectionBackColor = Color.FromArgb(253, 237, 237);
-            cellStyle.SelectionForeColor = Color.FromArgb(60, 60, 60);
-            cellStyle.WrapMode = DataGridViewTriState.False;
-            dgvRecentOrders.DefaultCellStyle = cellStyle;
-            dgvRecentOrders.EnableHeadersVisualStyles = false;
-            dgvRecentOrders.GridColor = Color.FromArgb(235, 235, 235);
-            dgvRecentOrders.Location = new Point(20, 55);
-            dgvRecentOrders.MultiSelect = false;
-            dgvRecentOrders.Name = "dgvRecentOrders";
-            dgvRecentOrders.ReadOnly = true;
-            dgvRecentOrders.RowHeadersVisible = false;
-            dgvRecentOrders.RowHeadersWidth = 72;
-            dgvRecentOrders.RowTemplate.Height = 38;
-            dgvRecentOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRecentOrders.Size = new Size(580, 345);
-            dgvRecentOrders.TabIndex = 2;
+            // 
+            this.dgvRecentOrders.AllowUserToAddRows = false;
+            this.dgvRecentOrders.AllowUserToDeleteRows = false;
+            this.dgvRecentOrders.AllowUserToResizeRows = false;
+            this.dgvRecentOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRecentOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRecentOrders.BackgroundColor = System.Drawing.Color.White;
+            this.dgvRecentOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRecentOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvRecentOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecentOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvRecentOrders.ColumnHeadersHeight = 40;
+            this.dgvRecentOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvRecentOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMaDon,
+            this.colKhachHang,
+            this.colNgayDat,
+            this.colTongTien,
+            this.colTrangThai});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRecentOrders.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvRecentOrders.EnableHeadersVisualStyles = false;
+            this.dgvRecentOrders.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.dgvRecentOrders.Location = new System.Drawing.Point(20, 55);
+            this.dgvRecentOrders.MultiSelect = false;
+            this.dgvRecentOrders.Name = "dgvRecentOrders";
+            this.dgvRecentOrders.ReadOnly = true;
+            this.dgvRecentOrders.RowHeadersVisible = false;
+            this.dgvRecentOrders.RowHeadersWidth = 72;
+            this.dgvRecentOrders.RowTemplate.Height = 38;
+            this.dgvRecentOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRecentOrders.Size = new System.Drawing.Size(580, 345);
+            this.dgvRecentOrders.TabIndex = 2;
+            // 
             // colMaDon
-            colMaDon.FillWeight = 14F;
-            colMaDon.HeaderText = "Mã đơn";
-            colMaDon.MinimumWidth = 9;
-            colMaDon.Name = "colMaDon";
-            colMaDon.ReadOnly = true;
+            // 
+            this.colMaDon.FillWeight = 14F;
+            this.colMaDon.HeaderText = "Mã đơn";
+            this.colMaDon.MinimumWidth = 9;
+            this.colMaDon.Name = "colMaDon";
+            this.colMaDon.ReadOnly = true;
+            // 
             // colKhachHang
-            colKhachHang.FillWeight = 26F;
-            colKhachHang.HeaderText = "Khách hàng";
-            colKhachHang.MinimumWidth = 9;
-            colKhachHang.Name = "colKhachHang";
-            colKhachHang.ReadOnly = true;
+            // 
+            this.colKhachHang.FillWeight = 26F;
+            this.colKhachHang.HeaderText = "Khách hàng";
+            this.colKhachHang.MinimumWidth = 9;
+            this.colKhachHang.Name = "colKhachHang";
+            this.colKhachHang.ReadOnly = true;
+            // 
             // colNgayDat
-            colNgayDat.FillWeight = 20F;
-            colNgayDat.HeaderText = "Ngày đặt";
-            colNgayDat.MinimumWidth = 9;
-            colNgayDat.Name = "colNgayDat";
-            colNgayDat.ReadOnly = true;
+            // 
+            this.colNgayDat.FillWeight = 20F;
+            this.colNgayDat.HeaderText = "Ngày đặt";
+            this.colNgayDat.MinimumWidth = 9;
+            this.colNgayDat.Name = "colNgayDat";
+            this.colNgayDat.ReadOnly = true;
+            // 
             // colTongTien
-            colTongTien.FillWeight = 20F;
-            colTongTien.HeaderText = "Tổng tiền";
-            colTongTien.MinimumWidth = 9;
-            colTongTien.Name = "colTongTien";
-            colTongTien.ReadOnly = true;
+            // 
+            this.colTongTien.FillWeight = 20F;
+            this.colTongTien.HeaderText = "Tổng tiền";
+            this.colTongTien.MinimumWidth = 9;
+            this.colTongTien.Name = "colTongTien";
+            this.colTongTien.ReadOnly = true;
+            // 
             // colTrangThai
-            colTrangThai.FillWeight = 20F;
-            colTrangThai.HeaderText = "Trạng thái";
-            colTrangThai.MinimumWidth = 9;
-            colTrangThai.Name = "colTrangThai";
-            colTrangThai.ReadOnly = true;
+            // 
+            this.colTrangThai.FillWeight = 20F;
+            this.colTrangThai.HeaderText = "Trạng thái";
+            this.colTrangThai.MinimumWidth = 9;
+            this.colTrangThai.Name = "colTrangThai";
+            this.colTrangThai.ReadOnly = true;
+            // 
+            // lblRecentOrdersTitle
+            // 
+            this.lblRecentOrdersTitle.AutoSize = true;
+            this.lblRecentOrdersTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblRecentOrdersTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblRecentOrdersTitle.Location = new System.Drawing.Point(20, 15);
+            this.lblRecentOrdersTitle.Name = "lblRecentOrdersTitle";
+            this.lblRecentOrdersTitle.Size = new System.Drawing.Size(260, 38);
+            this.lblRecentOrdersTitle.TabIndex = 0;
+            this.lblRecentOrdersTitle.Text = "Đơn hàng gần đây";
+            // 
             // panelTopFlowers
-            panelTopFlowers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panelTopFlowers.BackColor = Color.White;
-            panelTopFlowers.Controls.Add(lnkViewAllFlowers);
-            panelTopFlowers.Controls.Add(lblTopFlowersTitle);
-            panelTopFlowers.Controls.Add(panelFlower1);
-            panelTopFlowers.Controls.Add(panelFlower2);
-            panelTopFlowers.Controls.Add(panelFlower3);
-            panelTopFlowers.Location = new Point(880, 280);
-            panelTopFlowers.Name = "panelTopFlowers";
-            panelTopFlowers.Size = new Size(380, 420);
-            panelTopFlowers.TabIndex = 7;
-            // lblTopFlowersTitle
-            lblTopFlowersTitle.AutoSize = true;
-            lblTopFlowersTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTopFlowersTitle.ForeColor = Color.FromArgb(40, 40, 40);
-            lblTopFlowersTitle.Location = new Point(20, 15);
-            lblTopFlowersTitle.Name = "lblTopFlowersTitle";
-            lblTopFlowersTitle.Size = new Size(104, 21);
-            lblTopFlowersTitle.TabIndex = 0;
-            lblTopFlowersTitle.Text = "Hoa bán chạy";
+            // 
+            this.panelTopFlowers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTopFlowers.BackColor = System.Drawing.Color.White;
+            this.panelTopFlowers.Controls.Add(this.lnkViewAllFlowers);
+            this.panelTopFlowers.Controls.Add(this.lblTopFlowersTitle);
+            this.panelTopFlowers.Controls.Add(this.panelFlower1);
+            this.panelTopFlowers.Controls.Add(this.panelFlower2);
+            this.panelTopFlowers.Controls.Add(this.panelFlower3);
+            this.panelTopFlowers.Location = new System.Drawing.Point(880, 280);
+            this.panelTopFlowers.Name = "panelTopFlowers";
+            this.panelTopFlowers.Size = new System.Drawing.Size(380, 420);
+            this.panelTopFlowers.TabIndex = 7;
+            // 
             // lnkViewAllFlowers
-            lnkViewAllFlowers.ActiveLinkColor = Color.FromArgb(224, 98, 103);
-            lnkViewAllFlowers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lnkViewAllFlowers.AutoSize = true;
-            lnkViewAllFlowers.Font = new Font("Segoe UI", 9.5F);
-            lnkViewAllFlowers.LinkColor = Color.FromArgb(224, 98, 103);
-            lnkViewAllFlowers.Location = new Point(280, 19);
-            lnkViewAllFlowers.Name = "lnkViewAllFlowers";
-            lnkViewAllFlowers.Size = new Size(80, 17);
-            lnkViewAllFlowers.TabIndex = 1;
-            lnkViewAllFlowers.TabStop = true;
-            lnkViewAllFlowers.Text = "Xem tất cả →";
+            // 
+            this.lnkViewAllFlowers.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
+            this.lnkViewAllFlowers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkViewAllFlowers.AutoSize = true;
+            this.lnkViewAllFlowers.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lnkViewAllFlowers.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
+            this.lnkViewAllFlowers.Location = new System.Drawing.Point(280, 19);
+            this.lnkViewAllFlowers.Name = "lnkViewAllFlowers";
+            this.lnkViewAllFlowers.Size = new System.Drawing.Size(149, 31);
+            this.lnkViewAllFlowers.TabIndex = 1;
+            this.lnkViewAllFlowers.TabStop = true;
+            this.lnkViewAllFlowers.Text = "Xem tất cả →";
+            // 
+            // lblTopFlowersTitle
+            // 
+            this.lblTopFlowersTitle.AutoSize = true;
+            this.lblTopFlowersTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTopFlowersTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblTopFlowersTitle.Location = new System.Drawing.Point(20, 15);
+            this.lblTopFlowersTitle.Name = "lblTopFlowersTitle";
+            this.lblTopFlowersTitle.Size = new System.Drawing.Size(195, 38);
+            this.lblTopFlowersTitle.TabIndex = 0;
+            this.lblTopFlowersTitle.Text = "Hoa bán chạy";
+            // 
             // panelFlower1
-            panelFlower1.BackColor = Color.FromArgb(250, 250, 250);
-            panelFlower1.Controls.Add(lblFlower1Sales);
-            panelFlower1.Controls.Add(lblFlower1Name);
-            panelFlower1.Controls.Add(picFlower1);
-            panelFlower1.Location = new Point(20, 55);
-            panelFlower1.Name = "panelFlower1";
-            panelFlower1.Size = new Size(340, 105);
-            panelFlower1.TabIndex = 2;
-            // lblFlower1Name
-            lblFlower1Name.AutoSize = true;
-            lblFlower1Name.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblFlower1Name.ForeColor = Color.FromArgb(40, 40, 40);
-            lblFlower1Name.Location = new Point(105, 24);
-            lblFlower1Name.Name = "lblFlower1Name";
-            lblFlower1Name.Size = new Size(94, 20);
-            lblFlower1Name.TabIndex = 1;
-            lblFlower1Name.Text = "Hoa hồng đỏ";
+            // 
+            this.panelFlower1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panelFlower1.Controls.Add(this.lblFlower1Sales);
+            this.panelFlower1.Controls.Add(this.lblFlower1Name);
+            this.panelFlower1.Controls.Add(this.picFlower1);
+            this.panelFlower1.Location = new System.Drawing.Point(20, 55);
+            this.panelFlower1.Name = "panelFlower1";
+            this.panelFlower1.Size = new System.Drawing.Size(340, 105);
+            this.panelFlower1.TabIndex = 2;
+            // 
             // lblFlower1Sales
-            lblFlower1Sales.AutoSize = true;
-            lblFlower1Sales.Font = new Font("Segoe UI", 9.5F);
-            lblFlower1Sales.ForeColor = Color.Gray;
-            lblFlower1Sales.Location = new Point(106, 58);
-            lblFlower1Sales.Name = "lblFlower1Sales";
-            lblFlower1Sales.Size = new Size(75, 17);
-            lblFlower1Sales.TabIndex = 2;
-            lblFlower1Sales.Text = "Đã bán: 0";
+            // 
+            this.lblFlower1Sales.AutoSize = true;
+            this.lblFlower1Sales.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblFlower1Sales.ForeColor = System.Drawing.Color.Gray;
+            this.lblFlower1Sales.Location = new System.Drawing.Point(106, 58);
+            this.lblFlower1Sales.Name = "lblFlower1Sales";
+            this.lblFlower1Sales.Size = new System.Drawing.Size(110, 31);
+            this.lblFlower1Sales.TabIndex = 2;
+            this.lblFlower1Sales.Text = "Đã bán: 0";
+            // 
+            // lblFlower1Name
+            // 
+            this.lblFlower1Name.AutoSize = true;
+            this.lblFlower1Name.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblFlower1Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblFlower1Name.Location = new System.Drawing.Point(105, 24);
+            this.lblFlower1Name.Name = "lblFlower1Name";
+            this.lblFlower1Name.Size = new System.Drawing.Size(175, 36);
+            this.lblFlower1Name.TabIndex = 1;
+            this.lblFlower1Name.Text = "Hoa hồng đỏ";
+            // 
             // picFlower1
-            picFlower1.BackColor = Color.FromArgb(253, 237, 237);
-            picFlower1.Location = new Point(15, 15);
-            picFlower1.Name = "picFlower1";
-            picFlower1.Size = new Size(75, 75);
-            picFlower1.SizeMode = PictureBoxSizeMode.Zoom;
-            picFlower1.TabIndex = 0;
-            picFlower1.TabStop = false;
+            // 
+            this.picFlower1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.picFlower1.Location = new System.Drawing.Point(15, 15);
+            this.picFlower1.Name = "picFlower1";
+            this.picFlower1.Size = new System.Drawing.Size(75, 75);
+            this.picFlower1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFlower1.TabIndex = 0;
+            this.picFlower1.TabStop = false;
+            // 
             // panelFlower2
-            panelFlower2.BackColor = Color.FromArgb(250, 250, 250);
-            panelFlower2.Controls.Add(lblFlower2Sales);
-            panelFlower2.Controls.Add(lblFlower2Name);
-            panelFlower2.Controls.Add(picFlower2);
-            panelFlower2.Location = new Point(20, 175);
-            panelFlower2.Name = "panelFlower2";
-            panelFlower2.Size = new Size(340, 105);
-            panelFlower2.TabIndex = 3;
-            // lblFlower2Name
-            lblFlower2Name.AutoSize = true;
-            lblFlower2Name.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblFlower2Name.ForeColor = Color.FromArgb(40, 40, 40);
-            lblFlower2Name.Location = new Point(105, 24);
-            lblFlower2Name.Name = "lblFlower2Name";
-            lblFlower2Name.Size = new Size(89, 20);
-            lblFlower2Name.TabIndex = 1;
-            lblFlower2Name.Text = "Hoa hướng dương";
+            // 
+            this.panelFlower2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panelFlower2.Controls.Add(this.lblFlower2Sales);
+            this.panelFlower2.Controls.Add(this.lblFlower2Name);
+            this.panelFlower2.Controls.Add(this.picFlower2);
+            this.panelFlower2.Location = new System.Drawing.Point(20, 175);
+            this.panelFlower2.Name = "panelFlower2";
+            this.panelFlower2.Size = new System.Drawing.Size(340, 105);
+            this.panelFlower2.TabIndex = 3;
+            // 
             // lblFlower2Sales
-            lblFlower2Sales.AutoSize = true;
-            lblFlower2Sales.Font = new Font("Segoe UI", 9.5F);
-            lblFlower2Sales.ForeColor = Color.Gray;
-            lblFlower2Sales.Location = new Point(106, 58);
-            lblFlower2Sales.Name = "lblFlower2Sales";
-            lblFlower2Sales.Size = new Size(66, 17);
-            lblFlower2Sales.TabIndex = 2;
-            lblFlower2Sales.Text = "Đã bán: 0";
+            // 
+            this.lblFlower2Sales.AutoSize = true;
+            this.lblFlower2Sales.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblFlower2Sales.ForeColor = System.Drawing.Color.Gray;
+            this.lblFlower2Sales.Location = new System.Drawing.Point(106, 58);
+            this.lblFlower2Sales.Name = "lblFlower2Sales";
+            this.lblFlower2Sales.Size = new System.Drawing.Size(110, 31);
+            this.lblFlower2Sales.TabIndex = 2;
+            this.lblFlower2Sales.Text = "Đã bán: 0";
+            // 
+            // lblFlower2Name
+            // 
+            this.lblFlower2Name.AutoSize = true;
+            this.lblFlower2Name.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblFlower2Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblFlower2Name.Location = new System.Drawing.Point(105, 24);
+            this.lblFlower2Name.Name = "lblFlower2Name";
+            this.lblFlower2Name.Size = new System.Drawing.Size(241, 36);
+            this.lblFlower2Name.TabIndex = 1;
+            this.lblFlower2Name.Text = "Hoa hướng dương";
+            // 
             // picFlower2
-            picFlower2.BackColor = Color.FromArgb(255, 243, 224);
-            picFlower2.Location = new Point(15, 15);
-            picFlower2.Name = "picFlower2";
-            picFlower2.Size = new Size(75, 75);
-            picFlower2.SizeMode = PictureBoxSizeMode.Zoom;
-            picFlower2.TabIndex = 0;
-            picFlower2.TabStop = false;
+            // 
+            this.picFlower2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(224)))));
+            this.picFlower2.Location = new System.Drawing.Point(15, 15);
+            this.picFlower2.Name = "picFlower2";
+            this.picFlower2.Size = new System.Drawing.Size(75, 75);
+            this.picFlower2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFlower2.TabIndex = 0;
+            this.picFlower2.TabStop = false;
+            // 
             // panelFlower3
-            panelFlower3.BackColor = Color.FromArgb(250, 250, 250);
-            panelFlower3.Controls.Add(lblFlower3Sales);
-            panelFlower3.Controls.Add(lblFlower3Name);
-            panelFlower3.Controls.Add(picFlower3);
-            panelFlower3.Location = new Point(20, 295);
-            panelFlower3.Name = "panelFlower3";
-            panelFlower3.Size = new Size(340, 105);
-            panelFlower3.TabIndex = 4;
-            // lblFlower3Name
-            lblFlower3Name.AutoSize = true;
-            lblFlower3Name.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblFlower3Name.ForeColor = Color.FromArgb(40, 40, 40);
-            lblFlower3Name.Location = new Point(105, 24);
-            lblFlower3Name.Name = "lblFlower3Name";
-            lblFlower3Name.Size = new Size(80, 20);
-            lblFlower3Name.TabIndex = 1;
-            lblFlower3Name.Text = "Hoa tulip";
+            // 
+            this.panelFlower3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panelFlower3.Controls.Add(this.lblFlower3Sales);
+            this.panelFlower3.Controls.Add(this.lblFlower3Name);
+            this.panelFlower3.Controls.Add(this.picFlower3);
+            this.panelFlower3.Location = new System.Drawing.Point(20, 295);
+            this.panelFlower3.Name = "panelFlower3";
+            this.panelFlower3.Size = new System.Drawing.Size(340, 105);
+            this.panelFlower3.TabIndex = 4;
+            // 
             // lblFlower3Sales
-            lblFlower3Sales.AutoSize = true;
-            lblFlower3Sales.Font = new Font("Segoe UI", 9.5F);
-            lblFlower3Sales.ForeColor = Color.Gray;
-            lblFlower3Sales.Location = new Point(106, 58);
-            lblFlower3Sales.Name = "lblFlower3Sales";
-            lblFlower3Sales.Size = new Size(66, 17);
-            lblFlower3Sales.TabIndex = 2;
-            lblFlower3Sales.Text = "Đã bán: 0";
+            // 
+            this.lblFlower3Sales.AutoSize = true;
+            this.lblFlower3Sales.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblFlower3Sales.ForeColor = System.Drawing.Color.Gray;
+            this.lblFlower3Sales.Location = new System.Drawing.Point(106, 58);
+            this.lblFlower3Sales.Name = "lblFlower3Sales";
+            this.lblFlower3Sales.Size = new System.Drawing.Size(110, 31);
+            this.lblFlower3Sales.TabIndex = 2;
+            this.lblFlower3Sales.Text = "Đã bán: 0";
+            // 
+            // lblFlower3Name
+            // 
+            this.lblFlower3Name.AutoSize = true;
+            this.lblFlower3Name.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblFlower3Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblFlower3Name.Location = new System.Drawing.Point(105, 24);
+            this.lblFlower3Name.Name = "lblFlower3Name";
+            this.lblFlower3Name.Size = new System.Drawing.Size(128, 36);
+            this.lblFlower3Name.TabIndex = 1;
+            this.lblFlower3Name.Text = "Hoa tulip";
+            // 
             // picFlower3
-            picFlower3.BackColor = Color.FromArgb(243, 229, 245);
-            picFlower3.Location = new Point(15, 15);
-            picFlower3.Name = "picFlower3";
-            picFlower3.Size = new Size(75, 75);
-            picFlower3.SizeMode = PictureBoxSizeMode.Zoom;
-            picFlower3.TabIndex = 0;
-            picFlower3.TabStop = false;
+            // 
+            this.picFlower3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(229)))), ((int)(((byte)(245)))));
+            this.picFlower3.Location = new System.Drawing.Point(15, 15);
+            this.picFlower3.Name = "picFlower3";
+            this.picFlower3.Size = new System.Drawing.Size(75, 75);
+            this.picFlower3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFlower3.TabIndex = 0;
+            this.picFlower3.TabStop = false;
+            // 
             // frmMain
-            AutoScaleMode = AutoScaleMode.None;
-            BackColor = Color.FromArgb(248, 245, 245);
-            ClientSize = new Size(1280, 720);
-            Controls.Add(panelTopFlowers);
-            Controls.Add(panelRecentOrders);
-            Controls.Add(panelStats4);
-            Controls.Add(panelStats3);
-            Controls.Add(panelStats2);
-            Controls.Add(panelStats1);
-            Controls.Add(panelHeader);
-            Controls.Add(panelSidebar);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MinimumSize = new Size(1100, 650);
-            Name = "frmMain";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cửa Hàng Hoa - Trang chủ";
-            panelSidebar.ResumeLayout(false);
-            panelSidebar.PerformLayout();
-            panelLogo.ResumeLayout(false);
-            panelLogo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogoIcon).EndInit();
-            panelHeader.ResumeLayout(false);
-            panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAdminAvatar).EndInit();
-            panelStats1.ResumeLayout(false);
-            panelStats1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat1).EndInit();
-            panelStats2.ResumeLayout(false);
-            panelStats2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat2).EndInit();
-            panelStats3.ResumeLayout(false);
-            panelStats3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat3).EndInit();
-            panelStats4.ResumeLayout(false);
-            panelStats4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picStat4).EndInit();
-            panelRecentOrders.ResumeLayout(false);
-            panelRecentOrders.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvRecentOrders).EndInit();
-            panelTopFlowers.ResumeLayout(false);
-            panelTopFlowers.PerformLayout();
-            panelFlower1.ResumeLayout(false);
-            panelFlower1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picFlower1).EndInit();
-            panelFlower2.ResumeLayout(false);
-            panelFlower2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picFlower2).EndInit();
-            panelFlower3.ResumeLayout(false);
-            panelFlower3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picFlower3).EndInit();
-            ResumeLayout(false);
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.panelTopFlowers);
+            this.Controls.Add(this.panelRecentOrders);
+            this.Controls.Add(this.panelStats4);
+            this.Controls.Add(this.panelStats3);
+            this.Controls.Add(this.panelStats2);
+            this.Controls.Add(this.panelStats1);
+            this.Controls.Add(this.panelHeader);
+            this.Controls.Add(this.panelSidebar);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(1100, 650);
+            this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cửa Hàng Hoa - Trang chủ";
+            this.panelSidebar.ResumeLayout(false);
+            this.panelSidebar.PerformLayout();
+            this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoIcon)).EndInit();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdminAvatar)).EndInit();
+            this.panelStats1.ResumeLayout(false);
+            this.panelStats1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat1)).EndInit();
+            this.panelStats2.ResumeLayout(false);
+            this.panelStats2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat2)).EndInit();
+            this.panelStats3.ResumeLayout(false);
+            this.panelStats3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat3)).EndInit();
+            this.panelStats4.ResumeLayout(false);
+            this.panelStats4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStat4)).EndInit();
+            this.panelRecentOrders.ResumeLayout(false);
+            this.panelRecentOrders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecentOrders)).EndInit();
+            this.panelTopFlowers.ResumeLayout(false);
+            this.panelTopFlowers.PerformLayout();
+            this.panelFlower1.ResumeLayout(false);
+            this.panelFlower1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlower1)).EndInit();
+            this.panelFlower2.ResumeLayout(false);
+            this.panelFlower2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlower2)).EndInit();
+            this.panelFlower3.ResumeLayout(false);
+            this.panelFlower3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlower3)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Panel panelSidebar;
