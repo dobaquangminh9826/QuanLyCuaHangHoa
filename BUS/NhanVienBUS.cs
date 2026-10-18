@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using WindowsFormsApp1.DAL; // Kết nối tới lớp DAL chứa Database.cs
 
@@ -7,6 +8,16 @@ namespace WindowsFormsApp1.BUS
     // Từ khóa 'public' giúp Form đăng nhập và các Form GUI khác truy cập được
     public class NhanVienBUS
     {
+        // Đếm tổng số nhân viên (tính cả quản lý). Không có ai thì trả về 0
+        public static int DemSoNhanVien()
+        {
+            System.Data.DataTable dt = WindowsFormsApp1.DAL.Database.GetData("SELECT COUNT(*) FROM NhanVien");
+
+            if (dt == null || dt.Rows.Count == 0 || dt.Rows[0][0] == DBNull.Value)
+                return 0;
+
+            return Convert.ToInt32(dt.Rows[0][0]);
+        }
         // 1. Kiểm tra thông tin tài khoản & mật khẩu khi Đăng nhập[cite: 1]
         public static DataTable DangNhap(string taiKhoan, string matKhau)
         {

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using WindowsFormsApp1.DAL;
 
@@ -7,6 +8,11 @@ namespace WindowsFormsApp1.BUS
     public class FlowerBUS
     {
         // Lấy toàn bộ danh sách hoa
+        public static int DemSoHoa()
+        {
+            DataTable dt = Database.GetData("SELECT COUNT(*) FROM Hoa");
+            return Convert.ToInt32(dt.Rows[0][0]);
+        }
         public static DataTable LayHoa()
         {
             string sql = @"

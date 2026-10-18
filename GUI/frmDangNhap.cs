@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.BUS;
-// Lưu ý: Nếu frmMain nằm chung namespace WindowsFormsApp1 thì không cần using WindowsFormsApp1.GUI;
 
 namespace WindowsFormsApp1
 {
@@ -17,49 +11,100 @@ namespace WindowsFormsApp1
         public frmDangNhap()
         {
             InitializeComponent();
+            LoadHinhAnh();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        // Lấy ảnh từ Resources theo tên; trả về null nếu chưa có (không gây lỗi)
+        private static Image LayAnh(string ten)
         {
+            return Properties.Resources.ResourceManager.GetObject(ten) as Image;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void GanAnhPic(PictureBox pic, string tenAnh)
         {
+            Image img = LayAnh(tenAnh);
+            if (img == null) return;
+
+            pic.Image = img;
+            pic.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
+        private void LoadHinhAnh()
+        {
+            GanAnhPic(picLogoIcon, "logo");
+        }
+
+        // =====================================================
+        // NÚT ĐĂNG NHẬP
+        // =====================================================
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string taiKhoan = txtTaiKhoan.Text.Trim();
             string matKhau = txtMatKhau.Text.Trim();
 
-            if (string.IsNullOrEmpty(taiKhoan) || string.IsNullOrEmpty(matKhau))
+            if (taiKhoan.Length == 0)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ Tài khoản và Mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tài khoản!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTaiKhoan.Focus();
                 return;
             }
 
-            DataTable dt = NhanVienBUS.DangNhap(taiKhoan, matKhau);
-
-            if (dt != null && dt.Rows.Count > 0)
+            if (matKhau.Length == 0)
             {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                string chucVu = dt.Rows[0]["ChucVu"].ToString();
-
-                // Mở frmMain và truyền chức vụ sang
-                frmMain mainForm = new frmMain(chucVu);
-                this.Hide();    
-                mainForm.ShowDialog();
-
-                // Khi form chính (frmMain) đóng lại, đóng luôn form đăng nhập để tắt ứng dụng hoàn toàn
-                this.Close();
+                MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhau.Focus();
+                return;
             }
-            else
+
+            DataTable dt;
+            try
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Lỗi Đăng Nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dt = NhanVienBUS.DangNhap(taiKhoan, matKhau);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể kết nối hoặc xử lý đăng nhập: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!",
+                    "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMatKhau.Clear();
                 txtMatKhau.Focus();
+                return;
             }
+
+            // Đăng nhập thành công: mở trang chủ, truyền chức vụ lấy từ SQL
+            string chucVu = Convert.ToString(dt.Rows[0]["ChucVu"]);
+            string hoTen = Convert.ToString(dt.Rows[0]["HoTen"]);
+
+            Hide();
+            using (frmMain mainForm = new frmMain(chucVu, hoTen))
+            {
+                mainForm.ShowDialog();
+            }
+            Close();
+        }
+
+        // =====================================================
+        // NÚT THOÁT
+        // =====================================================
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        // =====================================================
+        // HIỆN / ẨN MẬT KHẨU
+        // =====================================================
+        private void chkHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            txtMatKhau.UseSystemPasswordChar = !chkHienMatKhau.Checked;
         }
     }
 }
