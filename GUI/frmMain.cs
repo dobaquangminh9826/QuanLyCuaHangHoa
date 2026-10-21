@@ -56,8 +56,7 @@ namespace WindowsFormsApp1
             btnCategory.Click += (s, e) => MoFormQuanLyDanhMuc();
             btnStaff.Click += (s, e) => MoFormQuanLyNhanVien();
             btnSale.Click += (s, e) => MoFormQuanLyBanHang();
-            btnOrder.Click += (s, e) => ChuaCoChucNang("Quản lý đơn hàng");
-            btnStatistics.Click += (s, e) => ChuaCoChucNang("Thống kê");
+            btnOrder.Click += (s, e) => MoFormQuanLyBanHang();
             btnChangePass.Click += (s, e) => MoFormDoiMatKhau();
             btnLogout.Click += (s, e) => DangXuat();
             lnkViewAllFlowers.LinkClicked += (s, e) => MoFormQuanLyHoa();
@@ -314,32 +313,19 @@ namespace WindowsFormsApp1
         // Mở form Quản lý nhân viên
         private void MoFormQuanLyNhanVien()
         {
-            // TODO: nếu đã có form Quản lý nhân viên thì bỏ comment (sửa tên form cho đúng),
-            // rồi xoá dòng ChuaCoChucNang
-            // using (frmQuanLyNhanVien frm = new frmQuanLyNhanVien())
-            // {
-            //     frm.ShowDialog(this);
-            // }
-            // LoadTrangChu();
-            ChuaCoChucNang("Quản lý nhân viên");
+             using (frmQuanLyNhanVien frm = new frmQuanLyNhanVien())
+            {
+                frm.ShowDialog();
+            }
         }
 
         // Mở form Quản lý bán hàng, đóng lại thì nạp lại trang chủ để thấy đơn mới
         private void MoFormQuanLyBanHang()
         {
-            // TODO: khi có form frmQuanLyBanHang thì bỏ comment đoạn dưới, xoá dòng ChuaCoChucNang
-            // using (frmQuanLyBanHang frm = new frmQuanLyBanHang())
-            // {
-            //     frm.ShowDialog(this);
-            // }
-            // LoadTrangChu();
-            ChuaCoChucNang("Quản lý bán hàng");
-        }
-
-        private void ChuaCoChucNang(string ten)
-        {
-            MessageBox.Show("Chức năng " + ten + " đang được phát triển.", "Thông báo",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (frmQuanLyBanHang frm = new frmQuanLyBanHang())
+            {
+                frm.ShowDialog();
+            }
         }
 
         // Mở form Đổi mật khẩu

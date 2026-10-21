@@ -2,12 +2,13 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using WindowsFormsApp1.BUS;
 
 namespace WindowsFormsApp1.GUI
 {
     public partial class frmQuanLyBanHang : Form
     {
-        private string connectionString = @"Data Source=LAPTOP-1JDF0EDQ;Initial Catalog=QuanLyCuaHangHoa;Integrated Security=True";
+        private string connectionString = @"Data Source=n3wgate;Initial Catalog=QuanLyCuaHangHoa;Integrated Security=True";
         private DataTable dtSanPham = new DataTable();
         private DataTable dtGioHang = new DataTable();
         private decimal tongTienThucTe = 0;
@@ -221,7 +222,7 @@ namespace WindowsFormsApp1.GUI
                                 cmdCT.ExecuteNonQuery();
                             }
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show("Lỗi lưu Chi tiết hóa đơn: " + ex.Message, "Phát hiện lỗi SQL");
                         }

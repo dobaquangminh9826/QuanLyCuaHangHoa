@@ -7,7 +7,7 @@ namespace WindowsFormsApp1.GUI
 {
     public partial class frmLichSuBanHang : Form
     {
-        private string connectionString = @"Data Source=LAPTOP-1JDF0EDQ;Initial Catalog=QuanLyCuaHangHoa;Integrated Security=True";
+        private string connectionString = @"Data Source=n3wgate;Initial Catalog=QuanLyCuaHangHoa;Integrated Security=True"; 
 
         public frmLichSuBanHang()
         {

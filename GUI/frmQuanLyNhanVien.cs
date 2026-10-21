@@ -2,19 +2,20 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using  WindowsFormsApp1.BUS;
 
 namespace WindowsFormsApp1.GUI
 {
     public partial class frmQuanLyNhanVien : Form
     {
-        private string connectionString = @"Data Source=LAPTOP-1JDF0EDQ;Initial Catalog=QuanLyCuaHangHoa;Integrated Security=True";
+        private string connectionString = @"Data Source=.;Initial Catalog=QuanLyCuaHangHoa;Integrated Security=True";
         private DataTable dtNhanVien = new DataTable();
 
         public frmQuanLyNhanVien()
         {
             InitializeComponent();
-            cbChucVu.SelectedIndex = 0;
-            cbLocChucVu.SelectedIndex = 0;
+            if (cbChucVu.Items.Count > 0) cbChucVu.SelectedIndex = 0;
+            if (cbLocChucVu.Items.Count > 0) cbLocChucVu.SelectedIndex = 0;
             TaiDanhSachNhanVien();
         }
 
@@ -25,9 +26,6 @@ namespace WindowsFormsApp1.GUI
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    // Đã xóa cột MatKhau khỏi câu lệnh SELECT để không nạp lên giao diện
-                    // Chỉ hiển thị nhân viên đang làm việc
                     string query = "SELECT MaNV, HoTen, SoDienThoai, TaiKhoan, ChucVu, GioiTinh FROM NhanVien WHERE TrangThai = N'Đang làm việc'";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -36,39 +34,30 @@ namespace WindowsFormsApp1.GUI
                         dtNhanVien.Clear();
                         adapter.Fill(dtNhanVien);
 
-                        // --- BẮT ĐẦU TẠO CỘT CỨNG BẰNG CODE ---
-                        dgvNhanVien.Columns.Clear(); // Dọn sạch cột rác (nếu có)
-                        dgvNhanVien.AutoGenerateColumns = false; // Tắt tính năng tự sinh cột
+                        dgvNhanVien.Columns.Clear();
+                        dgvNhanVien.AutoGenerateColumns = false;
                         dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                        // 1. Cột Mã NV
                         dgvNhanVien.Columns.Add("colMaNV", "Mã NV");
-                        dgvNhanVien.Columns["colMaNV"].DataPropertyName = "MaNV"; // Khớp với SQL
+                        dgvNhanVien.Columns["colMaNV"].DataPropertyName = "MaNV";
                         dgvNhanVien.Columns["colMaNV"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-                        // 2. Cột Họ Tên
                         dgvNhanVien.Columns.Add("colHoTen", "Họ và Tên");
                         dgvNhanVien.Columns["colHoTen"].DataPropertyName = "HoTen";
-                        dgvNhanVien.Columns["colHoTen"].Width = 150; // Cho cột tên rộng hơn 1 chút
+                        dgvNhanVien.Columns["colHoTen"].Width = 150;
 
-                        // 3. Cột Số Điện Thoại
                         dgvNhanVien.Columns.Add("colSDT", "Số Điện Thoại");
                         dgvNhanVien.Columns["colSDT"].DataPropertyName = "SoDienThoai";
 
-                        // 4. Cột Tài Khoản
                         dgvNhanVien.Columns.Add("colTaiKhoan", "Tài Khoản");
                         dgvNhanVien.Columns["colTaiKhoan"].DataPropertyName = "TaiKhoan";
 
-                        // 5. Cột Chức Vụ
                         dgvNhanVien.Columns.Add("colChucVu", "Chức Vụ");
                         dgvNhanVien.Columns["colChucVu"].DataPropertyName = "ChucVu";
 
-                        // 6. Cột Giới Tính
                         dgvNhanVien.Columns.Add("colGioiTinh", "Giới Tính");
                         dgvNhanVien.Columns["colGioiTinh"].DataPropertyName = "GioiTinh";
-                        // --- KẾT THÚC TẠO CỘT ---
 
-                        // Nạp dữ liệu vào bảng
                         dgvNhanVien.DataSource = dtNhanVien;
                     }
                 }
@@ -86,7 +75,6 @@ namespace WindowsFormsApp1.GUI
             string keyword = txtTimKiem.Text.Trim().Replace("'", "''");
             string chucVuLoc = cbLocChucVu.SelectedItem?.ToString();
 
-            keyword = txtTimKiem.Text.Trim();
             string filter = $"CONVERT(MaNV, 'System.String') LIKE '%{keyword}%' OR HoTen LIKE '%{keyword}%'";
 
             if (!string.IsNullOrEmpty(chucVuLoc) && chucVuLoc != "Tất cả")
@@ -115,12 +103,11 @@ namespace WindowsFormsApp1.GUI
                 DataGridViewRow row = dgvNhanVien.Rows[e.RowIndex];
 
                 txtMaNV.Text = row.Cells["colMaNV"].Value?.ToString();
-                txtMaNV.ReadOnly = true;
+                txtMaNV.ReadOnly = true; // Khóa mã nhân viên khi đang chọn sửa
 
                 txtHoTen.Text = row.Cells["colHoTen"].Value?.ToString();
                 txtSoDienThoai.Text = row.Cells["colSDT"].Value?.ToString();
                 txtTaiKhoan.Text = row.Cells["colTaiKhoan"].Value?.ToString();
-                //txtMatKhau.Text = row.Cells["colMatKhau"].Value?.ToString();
 
                 string chucVu = row.Cells["colChucVu"].Value?.ToString();
                 if (!string.IsNullOrEmpty(chucVu) && cbChucVu.Items.Contains(chucVu))
@@ -134,16 +121,17 @@ namespace WindowsFormsApp1.GUI
             }
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            string maNV = txtMaNV.Text.Trim();
-            string hoTen = txtHoTen.Text.Trim();
-            string sdt = txtSoDienThoai.Text.Trim();
-            string taiKhoan = txtTaiKhoan.Text.Trim();
-            string matKhau = txtMatKhau.Text.Trim();
-            string chucVu = cbChucVu.SelectedItem?.ToString();
-            string gioiTinh = rbNam.Checked ? "Nam" : "Nữ";
+private void btnLuu_Click(object sender, EventArgs e)
+{
+    string maNV = txtMaNV.Text.Trim();
+    string hoTen = txtHoTen.Text.Trim();
+    string sdt = txtSoDienThoai.Text.Trim();
+    string taiKhoan = txtTaiKhoan.Text.Trim();
+    string matKhau = txtMatKhau.Text.Trim();
+    string chucVu = cbChucVu.SelectedItem?.ToString();
+    string gioiTinh = rbNam.Checked ? "Nam" : "Nữ";
 
+            // 1. Kiểm tra rỗng cơ bản
             if (string.IsNullOrEmpty(maNV) || string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(taiKhoan))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ Mã NV, Họ tên và Tài khoản!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -151,56 +139,70 @@ namespace WindowsFormsApp1.GUI
             }
 
             try
+    {
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            conn.Open();
+
+            bool isUpdate = txtMaNV.ReadOnly && !string.IsNullOrEmpty(maNV);
+
+            string sql = "";
+            if (isUpdate)
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                // Cập nhật thông tin nhân viên
+                sql = @"UPDATE NhanVien 
+                        SET HoTen = @HoTen, SoDienThoai = @SoDienThoai, TaiKhoan = @TaiKhoan, 
+                            ChucVu = @ChucVu, GioiTinh = @GioiTinh" +
+                            (!string.IsNullOrEmpty(matKhau) ? ", MatKhau = @MatKhau" : "") +
+                            " WHERE MaNV = @MaNV";
+            }
+            else
+            {
+                // Thêm mới (Kiểm tra xem tài khoản đã tồn tại chưa để tránh lỗi trùng lặp)
+                string checkAcc = "SELECT COUNT(*) FROM NhanVien WHERE TaiKhoan = @TaiKhoan";
+                using (SqlCommand cmdCheck = new SqlCommand(checkAcc, conn))
                 {
-                    conn.Open();
-
-                    string checkSql = "SELECT COUNT(*) FROM NhanVien WHERE MaNV = @MaNV";
-                    bool isExist = false;
-                    using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
+                    cmdCheck.Parameters.AddWithValue("@TaiKhoan", taiKhoan);
+                    int countAcc = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                    if (countAcc > 0)
                     {
-                        checkCmd.Parameters.AddWithValue("@MaNV", maNV);
-                        isExist = Convert.ToInt32(checkCmd.ExecuteScalar()) > 0;
-                    }
-
-                    string sql = "";
-                    if (isExist)
-                    {
-                        sql = @"UPDATE NhanVien 
-                                SET HoTen = @HoTen, SoDienThoai = @SoDienThoai, TaiKhoan = @TaiKhoan, 
-                                    MatKhau = @MatKhau, ChucVu = @ChucVu, GioiTinh = @GioiTinh 
-                                WHERE MaNV = @MaNV";
-                    }
-                    else
-                    {
-                        sql = @"INSERT INTO NhanVien (MaNV, HoTen, SoDienThoai, TaiKhoan, MatKhau, ChucVu, GioiTinh) 
-                                VALUES (@MaNV, @HoTen, @SoDienThoai, @TaiKhoan, @MatKhau, @ChucVu, @GioiTinh)";
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaNV", maNV);
-                        cmd.Parameters.AddWithValue("@HoTen", (object)hoTen ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@SoDienThoai", (object)sdt ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@TaiKhoan", (object)taiKhoan ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@MatKhau", (object)matKhau ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@ChucVu", (object)chucVu ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@GioiTinh", (object)gioiTinh ?? DBNull.Value);
-
-                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Tài khoản này đã tồn tại trong hệ thống. Vلui lòng chọn tài khoản khác!", "Trùng dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                 }
 
-                MessageBox.Show("Lưu thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LamMoiForm();
-                TaiDanhSachNhanVien();
-            }
-            catch (Exception ex)
+                     sql = @"INSERT INTO NhanVien (MaNV, HoTen, SoDienThoai, TaiKhoan, MatKhau, ChucVu, GioiTinh, TrangThai) 
+                        VALUES (@MaNV, @HoTen, @SoDienThoai, @TaiKhoan, @MatKhau, @ChucVu, @GioiTinh, N'Đang làm việc')";
+                    }
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                MessageBox.Show("Lỗi khi lưu CSDL: " + ex.Message, "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmd.Parameters.AddWithValue("@MaNV", maNV);
+                cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                cmd.Parameters.AddWithValue("@SoDienThoai", string.IsNullOrEmpty(sdt) ? (object)DBNull.Value : sdt);
+                cmd.Parameters.AddWithValue("@TaiKhoan", taiKhoan);
+                cmd.Parameters.AddWithValue("@MatKhau", string.IsNullOrEmpty(matKhau) ? "123456" : matKhau);
+                cmd.Parameters.AddWithValue("@ChucVu", (object)chucVu ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+
+                if (isUpdate)
+                {
+                    cmd.Parameters.AddWithValue("@MaNV", maNV);
+                }
+
+                cmd.ExecuteNonQuery();
             }
         }
+
+        MessageBox.Show("Lưu thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        LamMoiForm();
+        TaiDanhSachNhanVien();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Lỗi khi lưu CSDL: " + ex.Message, "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
@@ -215,22 +217,20 @@ namespace WindowsFormsApp1.GUI
             txtSoDienThoai.Clear();
             txtTaiKhoan.Clear();
             txtMatKhau.Clear();
-            cbChucVu.SelectedIndex = 0;
+            if (cbChucVu.Items.Count > 0) cbChucVu.SelectedIndex = 0;
             rbNam.Checked = true;
             dgvNhanVien.ClearSelection();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem đã chọn nhân viên chưa
             if (string.IsNullOrEmpty(txtMaNV.Text))
             {
                 MessageBox.Show("Vui lòng click chọn một nhân viên trong bảng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Hiển thị hộp thoại xác nhận
-            DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cho nhân viên {txtHoTen.Text} nghỉ việc không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cho nhân viên {txtHoTen.Text} nghỉ việc không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -239,7 +239,6 @@ namespace WindowsFormsApp1.GUI
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        // Dùng lệnh UPDATE thay vì DELETE
                         string query = "UPDATE NhanVien SET TrangThai = N'Đã nghỉ việc' WHERE MaNV = @MaNV";
 
                         using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -250,16 +249,12 @@ namespace WindowsFormsApp1.GUI
                     }
 
                     MessageBox.Show("Đã chuyển trạng thái nhân viên thành 'Đã nghỉ việc'.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Xóa trắng các ô nhập liệu bên trái
-                    btnLamMoi_Click(sender, e); // Gọi hàm của nút Làm mới nếu có
-
-                    // Tải lại danh sách (nhân viên vừa xóa sẽ biến mất khỏi DataGridView)
+                    LamMoiForm();
                     TaiDanhSachNhanVien();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi xóa nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi khi cập nhật trạng thái nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
